@@ -9,5 +9,4 @@ print(monsters_damage)
 for i in range (monsters_count):
     if monsters_damage[i] < 100 and i!=mage_index -1:
         monsters_damage[i] += monsters_damage[mage_index-1]
-#добавили коммент
 print(monsters_damage)
