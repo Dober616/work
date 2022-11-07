@@ -1,17 +1,18 @@
-count_numbers = int(input('Количество чисел: '))
-subsequence = []
-for _ in range(count_numbers):
-    number = int(input('Число: '))
-    subsequence.append(number)
-add_list = []
-y = 1
-for digit in subsequence:
-    last_numm = subsequence[-y]
-    if digit == last_numm:
-        y += 1
-    else:
-        add_list.insert(0, digit)
-if len(add_list) > 0:
-    print('Последовательность: ', subsequence, '\nНужно приписать чисел: ', len(add_list), '\nСами числа: ', add_list)
 
 
+first_list = [1, 2, 3]
+sec_list = [4, 6, 3, 2, 1]
+first_list.extend(sec_list)
+print(first_list)
+
+for i in range(1, len(first_list)):
+
+    first_list.remove(first_list[-i])
+    print(first_list)
+
+print('Новый список с уникальными эелементами:', first_list)
+
+#
+# list = ['a','b','c','c', 'd','e']
+# list.remove('c')
+# print(list)
