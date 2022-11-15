@@ -1,11 +1,31 @@
-while True:
-    grats_template = input('Введите шаблон поздравления, '
-                       'в шаблоне нужно использовать конструкцию {name}: ')
+# user_name = input('Введите имя пользователя: ')
+# file_name = input('Введите имя файла: ')
+#
+# path = 'C:/{user}/docs/folder/{new_file}.txt'.format(
+#     user=user_name,
+#     new_file=file_name
+# )
+# path_2 = 'C:/{0}/docs/folder/{1}.txt'.format(
+#     user_name,
+#     file_name
+# )
+#
+# path_3 = f'C:/{user_name}/docs/folder/{file_name}.txt'
+#
+#
+# print(path)
+# print(path_2)
+# print(path_3)
 
-    if '{name}' in grats_template:
+while True:
+    congratulations = input('Введите шаблон поздравления, '
+                            'в шаблоне нужно использовать конструкцию {name}: ')
+    if '{name}' in congratulations:
         break
-    print('Ошибка: отсутствует конструкция {name}.')
-print('Введите списко имен (заканчиается на end): ')
+    else:
+        print('Отсутствует конструкция {name}.')
+
+print('Введите список имен (заканчивается на "end": ')
 names_list = []
 while True:
     name = input('Имя: ')
@@ -15,5 +35,4 @@ while True:
         break
 
 for i_name in names_list:
-    print(grats_template.format(name=i_name))
-
+    print(congratulations.format(name=i_name))
