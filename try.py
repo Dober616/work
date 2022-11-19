@@ -1,4 +1,16 @@
-a = [1, 2, 3, 4]
-a[-1:] = [2,2,2]
+# def shift_symbols(my_word, shift):
+#     temp = my_word[shift:len(word) + 1] + my_word[0:shift]
+#     return temp
+# def caesar(letter_shift, my_word):
+#     encrypted_message = [alfabet[alfabet.index(letter) - len(alfabet) + letter_shift]
+#                          if letter in alfabet else letter for letter in my_word]
+#     return encrypted_message
+# word = 'jdju/jnqm'  # shift_symbols(word,1)
+# alfabet = 'abcdefghijklmnopqrstuvwxyz'
+# print(word)
+# print(''.join(caesar(25, shift_symbols(word, abs(len(word) - 3)))))
 
-print(a)
+letter = 'b'
+text = 'abcd'
+if letter.lower() in text:
+    print(letter)
