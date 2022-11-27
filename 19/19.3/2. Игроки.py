@@ -9,10 +9,22 @@ players_dict = {
 8: {'name': 'Masha', 'team': 'C', 'status': 'Travel'},
 }
 
+team_a_rest = [
+    player['name']
+    for player in players_dict.values()
+    if player['team'] == 'A' and player['status'] == 'Rest'
+]
 
-teammate_a = [player['name'] for player in players_dict.values() if player['team'] == 'A' and player['status'] == 'Rest']
-print(teammate_a)
-teammate_b = [player['name'] for player in players_dict.values() if player['team'] == 'B' and player['status'] == 'Training']
-print(teammate_b)
-teammate_c = [player['name'] for player in players_dict.values() if player['team'] == 'C' and player['status'] == 'Travel']
-print(teammate_c)
+team_b_training = [
+    player['name']
+    for player in players_dict.values()
+    if player['team'] == 'B' and player['status'] == 'Training'
+]
+team_c_travel = [
+    player['name']
+    for player in players_dict.values()
+    if player['team'] == 'C' and player['status'] == 'Travel'
+]
+print(team_a_rest)
+print(team_b_training)
+print(team_c_travel)
