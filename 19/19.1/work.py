@@ -17,14 +17,16 @@
 #     example[name] = phone
 #     print(example)
 
-student = dict()
-student_info = input('Введите данные ученика\n(Фамилия, Имя, Город, ВУЗ, оценки): ')
-student_data = student_info.split()
-student['Имя'] = student_data[0]
-student['Фамилия'] = student_data[1]
-student['город'] = student_data[2]
-student['ВУЗ'] = student_data[3]
-student['Оценки'] = []
-for mark in student_data[4:]:
-    student['Оценки'].append(mark)
-print(student)
+# student = dict()
+# student_info = input('Введите данные ученика\n(Фамилия, Имя, Город, ВУЗ, оценки): ')
+# student_data = student_info.split()
+# student['Имя'] = student_data[0]
+# student['Фамилия'] = student_data[1]
+# student['город'] = student_data[2]
+# student['ВУЗ'] = student_data[3]
+# student['Оценки'] = []
+# for mark in student_data[4:]:
+#     student['Оценки'].append(mark)
+# print(student)
+
+

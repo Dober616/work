@@ -12,7 +12,6 @@
 #     }
 # }
 
-
 # data = dict()
 # #  до этого что-то происходит
 # print(data.get('server'))
@@ -34,8 +33,6 @@
 # print(data)
 
 
-
-
 players_dict = {
 1: {'name': 'Vanya', 'team': 'A', 'status': 'Rest'},
 2: {'name': 'Lena', 'team': 'B', 'status': 'Training'},
@@ -47,9 +44,9 @@ players_dict = {
 8: {'name': 'Masha', 'team': 'C', 'status': 'Travel'},
 }
 
-team_a = [
-    player['name']
-    for player in players_dict.values()
-    if player['team'] == 'A' and player['status'] == 'Rest'
-]
-print(team_a)
+# team_a = [
+#     player['name']
+#     for player in players_dict.values()
+#     if player['team'] == 'A' and player['status'] == 'Rest'
+# ]
+# print(team_a)
