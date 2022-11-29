@@ -30,3 +30,9 @@
 # print(student)
 
 
+result = dict()
+dict_1 = {'a':['b', 'c', 'd']}
+dict_2 = {'e':['f', 'g', 'h']}
+result[d] = dict_1
+result = dict_2
+print(result)
