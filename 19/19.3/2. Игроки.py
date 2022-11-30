@@ -28,3 +28,4 @@ team_c_travel = [
 print(team_a_rest)
 print(team_b_training)
 print(team_c_travel)
+print(players_dict)

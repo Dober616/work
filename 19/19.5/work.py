@@ -14,3 +14,4 @@ unique_data = []
 
 unique_data_dict = {user['id']: user for user in data}
 print(unique_data_dict.values())
+print(data)
