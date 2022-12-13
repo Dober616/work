@@ -1,8 +1,7 @@
 import random
-
-first_tuple = [random.randint(0, 5) for _ in range(10)]
-second_tuple = [random.randint(-5, 0) for _ in range(10)]
-print(first_tuple)
-print(second_tuple)
-first_tuple.extend(second_tuple)
-print(f'Количество нулей в итоговом кортеже {first_tuple}: {first_tuple.count(0)}')
+list_1 = [random.randint(0, 5) for _ in range(10)]
+list_2 = [random.randint(-5, 0) for _ in range(10)]
+list_1.extend(list_2)
+tuple_3 = tuple(list_1)
+print(tuple_3)
+print('Количество нулей в получившемся списке: ', tuple_3.count(0))
