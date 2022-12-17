@@ -1,8 +1,9 @@
-def find_fact(numm):
-    if numm == 1:
+def factorial(my_number):
+    if my_number == 1:
         return 1
-    fact = numm * find_fact(numm - 1)
-    return fact
+    return my_number * factorial(my_number - 1)
 
-numm = int(input('Введите число: '))
-print(find_fact(numm))
+
+
+my_number = int(input('Введите число: '))
+print(factorial(my_number))
