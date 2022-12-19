@@ -1,9 +1,8 @@
-def factorial(my_number):
-    if my_number == 1:
+def factorial(my_num):
+    if my_num == 1:
         return 1
-    return my_number * factorial(my_number - 1)
+    result = my_num * factorial(my_num - 1)
+    return result
 
-
-
-my_number = int(input('Введите число: '))
-print(factorial(my_number))
+my_num = 5
+print(factorial(my_num))

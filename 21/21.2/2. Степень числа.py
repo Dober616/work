@@ -1,9 +1,10 @@
-def power(a, n):
-    if n == 1:
-        return a
-    return (a * power(a, n - 1))
+def my_function(my_numm, other_numm):
+    if other_numm == 0:
+        return 1
+    result = my_numm * my_function(my_numm, other_numm - 1)
+    return result
 
+my_numm = float(input('Введите вещественное число: '))
+other_numm = int(input('Введите степень числа: '))
 
-float_num = float(input('Введите вещественное число: '))
-int_num = int(input('Введите степень числа: '))
-print(f'{float_num} ** {int_num} = {power(float_num, int_num)}')
+print(my_function(my_numm, other_numm))
