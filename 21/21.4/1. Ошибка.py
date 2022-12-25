@@ -1,3 +1,4 @@
+import copy
 import random
 
 def change_dict(dct):
@@ -9,6 +10,7 @@ def change_dict(dct):
             i_value[num] = i_key
         if isinstance(i_value, set):
             i_value.add(num)
+
 
 nums_list = [1, 2, 3]
 some_dict = {
@@ -22,10 +24,10 @@ common_dict = {
     3: uniq_nums,
     4: (10, 20, 30)
 }
+common_dict_copy = copy.deepcopy(common_dict)
+change_dict(common_dict_copy)
+for i in common_dict_copy:
+    print(common_dict_copy[i])
 
-change_dict(common_dict)
-print(common_dict)
+print(f'{nums_list}\n {some_dict}\n {uniq_nums}')
 
-print(nums_list)
-print(some_dict)
-print(uniq_nums)
