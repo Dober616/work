@@ -1,15 +1,11 @@
-def tax_doc(tax, *args, **kwargs):
-    price_summ = 0
-    for i_price in args:
-        price_summ = price_summ + i_price * tax / 100
-    print(f'Сумма цен с учетом налога: {price_summ}')
-    for i_data, i_value in kwargs.items():
-        print(f'{i_data}: {i_value}')
+def print_tax_doc(tax, *args, **kwargs):
+    price_sum = 0
+    for i in args:
+        price_sum = price_sum + i * tax / 100
+    print(f'Сумма цен с учетом налога: {price_sum}')
+    for i, y in kwargs.items():
+        print(f'{i}: {y}')
 
 
-
-
-
-tax = int(input('Величина налога: '))
-tax_doc(tax, 1000, 950, 820, 990, 987,
-        year=1997, doctype='report', operation_id=11133388)
+my_tax = int(input('Величина налога: '))
+print_tax_doc(my_tax, 1000, 950, 880, 920, 990, year=2022, day='friday', doc_num=12345678)
