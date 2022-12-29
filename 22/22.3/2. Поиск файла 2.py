@@ -20,5 +20,5 @@ def check_file_inside(way_to_file):
         print(line)
     file.close()
 
-all_ways = find_my_file('..', '6.4.py')
+all_ways = find_my_file('..', 'group_1.txt')
 check_file_inside(random.choice(all_ways))

@@ -1,24 +1,41 @@
 import os
 
 
-def find_file(current_way, my_file_name):
-    print(f'Переходим в {current_way}')
-    for element in os.listdir(current_way):
-        way = os.path.join(current_way, element)
-        print(f'Смотрим {way}')
-        if my_file_name == element:
-            return way
-        if os.path.isdir(way):
+# def print_dirs(some_project):
+#     print(f'\nСодержание директории {some_project}')
+#     if os.path.exists(some_project):
+#         for element in os.listdir(some_project):
+#             way = os.path.join(some_project, element)
+#             print(f'        {way}')
+#     else:
+#         print('Такого каталога в проекте не существует')
+#
+#
+# projects_list = ['work', 'dpo_python_basic', 'nothing_project']
+# for project in projects_list:
+#     way_to_project = os.path.abspath(os.path.join('..', '..', '..', project))
+#     print_dirs(way_to_project)
+
+
+def find_my_file(current_path, file_name):
+    print(f'Переходим {current_path}')
+    for element in os.listdir(current_path):
+        path = os.path.join(current_path, element)
+        print(f'    смотрим {path}')
+        if file_name == element:
+            return path
+        if os.path.isdir(path):
             print('это директория')
-            result = find_file(way, my_file_name)
+            result = find_my_file(path, file_name)
             if result:
                 break
     else:
-        result = None
+        result=None
     return result
 
-file_way = find_file(os.path.abspath(os.path.join('..', '..', '..', 'work')), 'admin.bat')
-if file_way:
-    print(f'Абсолютный путь к файлу: {file_way}')
+file_path = find_my_file(os.path.abspath(os.path.join('..', '..', '..', '..', 'pycharmprojects')), '1. Иконки.py')
+if file_path:
+    print(file_path)
 else:
-    print('Такого файла в структуре нет')
+    print('Файл не найден')
+

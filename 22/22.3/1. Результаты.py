@@ -1,7 +1,7 @@
 import os
 
-file_1 = open('/Users/druz_kirill/PycharmProjects/task/group_1.txt', 'r')
-file_2 = open('/Users/druz_kirill/PycharmProjects/Additional_info/group_2.txt', 'r')
+file_1 = open('/Users/kirilldruzak/PycharmProjects/task/group_1.txt', 'r')
+file_2 = open('/Users/kirilldruzak/PycharmProjects/task/group_2.txt', 'r')
 point_summ = 0
 point_diff = 0
 point_multiple = 1

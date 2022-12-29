@@ -1,7 +1,8 @@
 import os
 file_name = 'admin.bat'
-some_path = os.path.join('pycharm_projects', 'work', file_name)
-abs_path = os.path.abspath(file_name)
+simple_way = os.path.join('pycharmprojects', 'dpo_python_basic', file_name)
+absolute_way = os.path.abspath(file_name)
 
-print(f'Относительный путь до файла: {some_path}')
-print(f'Абсолютный путь к файлу: {abs_path}')
+
+print(simple_way)
+print(absolute_way)
