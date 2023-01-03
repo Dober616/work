@@ -1,3 +1,3 @@
 import os
 
-print('Корень диска: ', os.path.abspath(os.path.join(os.path.sep)))
+print(f'Корень диска {os.path.sep}')

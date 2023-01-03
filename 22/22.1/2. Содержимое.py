@@ -1,5 +1,4 @@
 import os
 
-for element in os.listdir(os.path.join('..', '..', '..', 'work')):
-    print(os.path.join(os.path.abspath('..'), element))
-    
+for element in os.listdir(os.path.abspath(os.path.join('..', '..', '..', 'dpo_python_basic'))):
+    print(os.path.abspath(element))

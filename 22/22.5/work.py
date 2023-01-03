@@ -1,0 +1,7 @@
+speakers_file = open('speakers.txt', 'r')
+data = speakers_file.read(14)
+speakers_file.seek(10)
+data_2 = speakers_file.read(22)
+print(data)
+print(data_2)
+speakers_file.close()
