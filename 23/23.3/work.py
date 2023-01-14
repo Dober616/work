@@ -21,20 +21,22 @@ try:
         first_num = int(nums_list[0])
         secnd_num = int(nums_list[1])
 
+
         total += sum_of_divided(first_num, secnd_num)
-    print(f'Общая сумма {total}')
+    print(f'Общая сумма = {total}')
 
 except ZeroDivisionError:
-    print('На ноль делить нельзя!')
+    print('На ноль же делить нельзя!')
+
 
 answer_file = open('answer.txt', 'w')
 try:
     answer_file.write('The answer is: ')
     answer_file.write(str(total))
 except TypeError:
-    print('Ошибка записи в файл. Тип данных не строка!')
+    print('Ошибка записи в файл. Тип данных не строка')
 else:
-    print('Теперь все норм')
+    print('Пока в программе все норм')
 finally:
     answer_file.close()
     print(answer_file.closed)
