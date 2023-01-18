@@ -15,14 +15,14 @@ class Family:
 
     def buy_a_house(self):
         house_price = 500000
-        while Family.house == False:
-            if Family.family_money >= house_price:
-                print(f'Дом куплен! Поздравляем! Да еще и осталось {Family.family_money - house_price}')
-                Family.house = True
-                Family.family_money -= house_price
+        while self.house == False:
+            if self.family_money >= house_price:
+                print(f'Дом куплен! Поздравляем! Да еще и осталось {self.family_money - house_price}')
+                self.house = True
+                self.family_money -= house_price
             else:
-                print(f'Пока купить дом не можем, не хватает {house_price - Family.family_money}')
-                Family.earn_money(self)
+                print(f'Пока купить дом не можем, не хватает {house_price - self.family_money}')
+                self.earn_money()
 
 
 sims = Family()
