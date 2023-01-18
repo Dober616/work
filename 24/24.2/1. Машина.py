@@ -1,14 +1,17 @@
 import random
 
-class Some_car:
-    color = 'color'
-    price = 'some_price'
-    max_speed = 'speed'
+class Car:
+    color = 'white'
+    price = 0
+    max_speed = random.randint(1, 200)
     current_speed = 0
 
-toyota = Some_car()
+    def print_info(self):
+        print(f'{self.color}, {self.price}, {self.max_speed}, {self.current_speed}')
+
+toyota = Car()
 toyota.color = 'red'
 toyota.price = 2000000
-toyota.max_speed = random.randint(0, 100)
+toyota.current_speed = 2
 
-print(toyota.color, toyota.price, toyota.max_speed)
+toyota.print_info()
