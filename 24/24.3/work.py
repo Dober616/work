@@ -1,26 +1,25 @@
 class User:
     user_name = 'Admin'
-    password = 'qwert'
+    password = 'asdfg'
     is_banned = False
-    frends = []
+    friends = []
 
     def print_info(self):
-        print(
-            f'Имя: {self.user_name};\n'
-            f'пароль: {self.password};\n'
-            f'статус: {self.is_banned};\n'
-            f'друзья: {self.frends}'
-        )
-    def add_friend(self, friend):
+        print(f'Имя пользователя: {self.user_name}'
+              f'\nпароль: {self.password}'
+              f'\nстатус бана: {self.is_banned}'
+              f'\nдрузья: {self.friends}')
+
+    def add_fritnd(self, friend):
         if isinstance(friend, User):
-            self.frends.append(friend.user_name)
+            self.friends.append(friend.user_name)
         else:
-            self.frends.append(friend)
+            self.friends.append(friend)
+
 
 user_1 = User()
 user_2 = User()
 user_2.user_name = 'Алина'
-user_1.add_friend('Bob')
-user_1.add_friend('Egor')
-user_1.add_friend(user_2)
+user_1.add_fritnd('Bob')
+user_1.add_fritnd(user_2)
 user_1.print_info()

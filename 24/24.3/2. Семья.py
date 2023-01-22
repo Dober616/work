@@ -1,30 +1,30 @@
 class Family:
-    name = 'Family name'
-    family_money = 100000
+    name = 'Simpsons'
+    money = 10 ** 5
     house = False
 
-    def print_info(self):
-        print(f'Имя семьи: {Family.name}\n'
-              f'Количество денег: {Family.family_money}\n'
-              f'Наличие дома: {Family.house}')
-
-
-    def earn_money(self):
-        money = int(input('Заработали денег: '))
-        Family.family_money += money
-
-    def buy_a_house(self):
-        house_price = 500000
+    def info(self):
+        print(f'Фамилия семьи: {self.name}\n'
+              f'Текущее количество денег: {self.money}\n'
+              f'Наличие дома: {self.house}')
+    def buy_house(self, price):
         while self.house == False:
-            if self.family_money >= house_price:
-                print(f'Дом куплен! Поздравляем! Да еще и осталось {self.family_money - house_price}')
+            if price <= self.money:
+
                 self.house = True
-                self.family_money -= house_price
+                self.money -= price
+                print('Поздравляем с покупкой!!!')
+                self.info()
             else:
-                print(f'Пока купить дом не можем, не хватает {house_price - self.family_money}')
+                print(f'На дом пока не хватает. Необходимо заработать еще {price - self.money}')
                 self.earn_money()
 
 
-sims = Family()
-sims.print_info()
-sims.buy_a_house()
+    def earn_money(self):
+        self.summ = int(input('Заработали денег: '))
+        self.money += self.summ
+
+griffins = Family()
+griffins.name = 'Гриффины'
+griffins.buy_house(10**6)
+
