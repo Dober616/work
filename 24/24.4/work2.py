@@ -1,12 +1,10 @@
+class Potato:
+    def __init__(self, index):
+        self.index = index
+        self.state = 0
 
 
-class Board:
-    my_board = ['', '', '', '', '', '', '', '', '']
-    def print_current_status(status):
-        for i, cell in enumerate(status):
-            if (i + 1) % 3 == 0:
-                print(f'{cell}')
-            else:
-                print(f'{cell}|', end='')
 
-    print_current_status(my_board)
+class Garden:
+    def __init__(self, count):
+        self.potatoes = [Potato(index) for index in range(1, count + 1)]
