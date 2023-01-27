@@ -1,5 +1,5 @@
 class Family:
-    surname = 'Иванов'
+    surname = 'Common family'
     money = 100000
     have_a_house = False
 
@@ -10,24 +10,21 @@ class Family:
 
     def earn_money(self, amount):
         self.money += amount
-        print(f'Заработал {amount} денег.\n'
-              f'Текущее количество денег {self.money}')
+        print(f'Заработано {amount} денег! Текущее количество денег: {self.money}')
 
-    def buy_house(self, price, discount=0):
-        price -= price * discount / 100
-        if self.money >= price:
+    def buy_house(self, house_price, discount=0):
+        house_price -= house_price * discount / 100
+        if self.money >= house_price:
             self.have_a_house = True
-            self.money -= price
-            print(f'Поздравляем, дом куплен!\n{self.info()}')
+            self.money -= house_price
+            print(f'Поздравляем, вы купили дом!!! Осталось денег {self.money}')
         else:
-            print(f'Денег пока не хватает. Необходимо еще {price - self.money}')
+            print(f'Денег на дом пока не хватает. Нужно еще {house_price - self.money}')
 
-
-first = Family()
-first.info()
-first.buy_house(10 ** 6)
-while not first.have_a_house:
-    first.earn_money(160000)
-    print('Заработали еще денег, пробуем опять купить дом')
-    first.buy_house(10 ** 6)
-
+my_family = Family()
+print('Пробуем купить дом')
+my_family.buy_house(10** 6, 0)
+while not my_family.have_a_house:
+    my_family.earn_money(130000)
+    my_family.buy_house(10 ** 6, 10)
+my_family.info()

@@ -1,4 +1,4 @@
-class Worker:
+class Employee:
 
     def __init__(self, name, salary):
         self.name = name
@@ -6,9 +6,10 @@ class Worker:
 
     def info(self):
         print(f'Работника зовут {self.name}\n'
-              f'его зарплата: {self.salary}')
+              f'Его зарплата {self.salary}')
 
-emp1 = Worker('Bob', 10000)
-emp1.info()
-emp2 = Worker('Tom', 12000)
-emp2.info()
+worker_1 = Employee('Tom', 10000)
+worker_2 = Employee('Bob', 12000)
+
+worker_1.info()
+worker_2.info()

@@ -1,11 +1,36 @@
-def shift_symbols(my_word, shift):
-    temp = my_word[shift:len(my_word)] + my_word[0:shift]
-    return temp
-def caesar(letter_shift, my_word):
-    encrypted_word = (alfabet[alfabet.index(letter) + 25) % len(alfabet) + letter_shift]
-                         if letter in alfabet else letter for letter in my_word]
-    return encrypted_word
+class House:
+    def __init__(self):
+        self.money = 0
+        self.food = 50
 
-alfabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-text = 'fTjnqm tj scfuuf ibou fy/dpnqm'
-message = list(text.upper())
+
+class Inhabitant():
+    def __init__(self, name, house):
+        self.name = name
+        self.satiety = 50
+        self.house = house
+
+    def eat(self):
+        self.house.food += 30
+
+    # def work(self):
+    #     self.satiety -= 10
+    #
+    # def play(self):
+    #     self.satiety -= 10
+    #
+    # def shopping(self):
+
+    def info(self):
+        print(f'Сытость {self.name} = {self.satiety}\n'
+              f'Еды осталось {self.house.food}')
+
+
+my_home = House()
+alina = Inhabitant('Алина', my_home)
+egor = Inhabitant('Егор', 'CoolHome')
+
+
+alina.info()
+alina.eat()
+alina.info()
