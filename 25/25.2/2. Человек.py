@@ -1,33 +1,40 @@
-class Men:
+class Man:
     __count = 0
-    def __init__(self, name, age):
+    def __init__(self, name, age=0):
         self.set_name(name)
         self.set_age(age)
-        Men.__count += 1
+        Man.__count += 1
 
     def set_name(self, name):
-        if isinstance(name, str):
+        if name.isalpha():
             self.__name = name
         else:
             raise Exception('Недопустимый формат имени')
 
+    def get_name(self):
+        return self.__name
+
+    def get_age(self):
+        return self.__age
+
     def set_age(self, age):
-        if isinstance(age, int) and age in range(1, 99):
+        if age in range(0, 100):
             self.__age = age
         else:
-            raise Exception('Недопустимый формат возраста')
-
-    def get_info(self):
-        return self.__name, self.__age
+            raise Exception('Недопустимый возраст')
 
     def get_count(self):
-        return Men.__count
+        return self.__count
+    def __str__(self):
+        return f'Человека зовут: {self.__name}\n' \
+               f'его возраст: {self.__age}'
 
 
-egor = Men('Егор', 33)
-max = Men('Макс', 11)
-egor.set_age(44)
-max.set_age(55)
-print(egor.get_info())
-print(max.get_info())
-print(f'Количество объектов: {egor.get_count()}')
+kirill = Man('Кирилл', 33)
+egor = Man('Егор')
+maxim = Man('Максим', 2)
+print(kirill)
+print(egor)
+print(maxim)
+print(f'\nСчетчик: {egor.get_count()}')
+print(egor.get_age())

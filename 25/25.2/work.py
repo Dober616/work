@@ -1,7 +1,6 @@
 class Person:
     __count = 0
 
-
     def __init__(self, name, age):
         self.__name = name
         self.set_age(age)
@@ -16,24 +15,24 @@ class Person:
     def get_age(self):
         return self.__age
 
+    def get_name(self):
+        return self.__name
 
 
     def __str__(self):
-        return f'Имя: {self.__name}\tвозраст: {self.__age}'
+        return f'\nИмя пользователя: {self.__name}\n' \
+               f'его возраст: {self.__age}'
 
     def get_count(self):
         return self.__count
 
+kirill = Person('Кирилл', 38)
+kirill.set_age(89)
+egor = Person('Егор', 2)
 
-misha = Person('Миша', 25)
-pasha = Person('Паша', 23)
-roma = Person('Рома', 80)
-print(misha)
-print(pasha)
-print(roma)
-print(misha.get_count())
-new_age = 80
-misha.age = new_age
-print(misha)
-misha.set_age(new_age)
-print(misha.get_age())
+
+print(kirill, egor)
+print(f'\nСчетчик равен: {kirill.get_count()}')
+
+
+print(kirill.get_name())
