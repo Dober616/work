@@ -1,36 +1,48 @@
-class House:
+class Property:
+    def __init__(self, worth=0, tax=0):
+        self.set_worth(worth)
+        self.set_tax(tax)
+
+    def get_tax(self):
+        return self.tax
+
+    def set_tax(self, tax):
+        self.tax = self.worth * tax / 100
+
+    def get_worth(self):
+        return self.worth
+
+    def set_worth(self, worth):
+        self.worth = int(input(f'Ввведите стоимость: '))
+
+    def get_summ(self):
+        return self.get_worth() + self.get_tax()
+
+
+class Apartment(Property):
     def __init__(self):
-        self.money = 0
-        self.food = 50
+        super().__init__()
+        self.set_tax(0.1)
 
 
-class Inhabitant():
-    def __init__(self, name, house):
-        self.name = name
-        self.satiety = 50
-        self.house = house
-
-    def eat(self):
-        self.house.food += 30
-
-    # def work(self):
-    #     self.satiety -= 10
-    #
-    # def play(self):
-    #     self.satiety -= 10
-    #
-    # def shopping(self):
-
-    def info(self):
-        print(f'Сытость {self.name} = {self.satiety}\n'
-              f'Еды осталось {self.house.food}')
+class Car(Property):
+    def __init__(self):
+        super().__init__()
+        self.set_tax(0.5)
 
 
-my_home = House()
-alina = Inhabitant('Алина', my_home)
-egor = Inhabitant('Егор', 'CoolHome')
+class CountryHouse(Property):
+    def __init__(self):
+        super().__init__()
+        self.set_tax(0.2)
 
+my_flat = Apartment()
+my_car = Car()
+my_house = CountryHouse()
 
-alina.info()
-alina.eat()
-alina.info()
+general = my_flat.get_summ() + my_car.get_summ() + my_house.get_summ()
+my_money = int(input('Сколько денег то у вас? '))
+if my_money >= general:
+    print('Поздравляем, вы можете все это купить')
+else:
+    print('Надо бы еще подкопить')
