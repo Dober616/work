@@ -1,54 +1,52 @@
 class Ship:
     def __init__(self, model):
-        self.__model = model
+        self.model = model
 
     def __str__(self):
-        return f'Модель корабля: {self.__model}'
+        return f'\nМодель корабля: {self.model}'
 
-    def sail(self):
-        print('Корабль куда-то поплыл')
+    def sail(self, point):
+        self.point = point
+        print(f'Корабль {self.model} поплыл в {self.point}')
 
-class Military(Ship):
+class Warship(Ship):
     def __init__(self, model, weapon):
         super().__init__(model)
-        self.weapon = weapon
+        self.__weapon = weapon
 
-    def attack(self):
-        print(f'Корабль атакует с помощью {self.weapon}')
+    def attack(self, target):
+        self.target = target
+        print(f'Боевой корабль атакует {self.target} с помощью {self.__weapon}')
 
-class Cargo(Ship):
-    def __init__(self, model):
+class Cargo_ship(Ship):
+    def __init__(self, model, cargo_weight=0):
         super().__init__(model)
-        self.cargo_load = 0
+        self.cargo_weight = cargo_weight
 
-    def load(self):
-        print('Загружаем корабль')
-        self.cargo_load += 1
-        print(f'Текущая загруженность: {self.cargo_load}')
+    def loading(self, cargo):
+        self.cargo = cargo
+        print(f'Корабль загружается грузом общим весом {self.cargo}')
+        self.cargo_weight += self.cargo
+        print(f'Вес груза на корабле {self.cargo_weight}')
 
-    def un_load(self):
-        if self.cargo_load > 0:
-            print('Разгружаем корабль')
-            self.cargo_load -= 1
-        else:
-            print('Корабль пустой, нечего разгружать')
-        print(f'Текущая загруженность: {self.cargo_load}')
-
-    def move(self, unload_point):
-        self.unload_point = unload_point
-        print(f'Корабль плывет к месту разгрузки в {unload_point}')
+    def unloading(self, weight):
+        self.weight = weight
+        self.cargo_weight -= self.weight
+        print(f'Корабль разгружается. Остаток груза = {self.cargo_weight}')
 
 
 
 
-avrora = Military('Аврора', 'MachineGun')
+avrora = Warship('Аврора', 'Пушка')
 print(avrora)
-avrora.attack()
-kruser = Cargo('Крузенштерн')
-print(kruser)
-kruser.load()
-kruser.un_load()
-kruser.move('Пятигорск')
-kruser.un_load()
+avrora.sail('Сомали')
+avrora.attack('Enemy')
+
+print()
+cruiser = Cargo_ship('Крузенштерн')
+print(cruiser)
+cruiser.loading(100)
+cruiser.sail('Буркинафасо')
+cruiser.unloading(77)
 
 

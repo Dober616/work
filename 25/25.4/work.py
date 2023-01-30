@@ -7,6 +7,9 @@ class Pet():
         return f'Всего ног: {self.legs}\n' \
                f'Наличие хвоста: {tail}'
 
+    def walk(self):
+        print('Гуляет')
+
 class Cat(Pet):
     type = 'Кот'
 
@@ -19,14 +22,16 @@ class Dog(Pet):
     def sound(self):
         print('Гав')
 
-
-
 class Frog(Pet):
+    legs = 2
     type = 'Лягушка'
     has_tail = False
 
     def sound(self):
         print('Ква')
+
+    def walk(self):
+        print('Плавает')
 
 cat = Cat()
 dog = Dog()
@@ -34,9 +39,12 @@ frog = Frog()
 print(cat.type)
 print(cat)
 cat.sound()
+cat.walk()
 print(dog.type)
 print(dog)
 dog.sound()
+dog.walk()
 print(frog.type)
 print(frog)
 print(frog.sound())
+frog.walk()
