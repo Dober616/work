@@ -1,22 +1,16 @@
-# my_dict = {1: 'f', 2: 's'}
-#
-# print(my_dict.get(3))
-
-class MyDict:
-    def __init__(self, dictionary):
-        self.dictionary = dictionary
-
-    def get_value(self, key):
-        self.key = key
-        result = self.dictionary.get(self.key)
-        if result:
-            return result
-        return 0
+import os
 
 
+def strings_count(path):
+    all_strings = 0
+    for dirpath, dirnames, filenames in os.walk(path):
+        for file in filenames:
+            if os.path.join(dirpath, file).endswith('.py'):
+                curr_file = open(os.path.join(dirpath, file), 'r')
+                for line in curr_file.readlines():
+                    if not (line == '\n'):
+                        all_strings += 1
+    return all_strings
 
 
-my_dictionary = {1: 'a', 2: 'b'}
-
-ttt = MyDict(my_dictionary)
-print(ttt.get_value(3))
+print(strings_count('/Users/druz_kirill/PycharmProjects/Module26'))
