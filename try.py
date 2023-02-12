@@ -1,18 +1,25 @@
-import math
-
 class MyMath:
-    def __init__(self, length=0, radius=0):
-        self.length = length
-        self.radius = radius
+    def __init__(self, a, b):
+        self.a(a)
+        self.b(b)
 
-    def circle(self):
-        return 2 * math.pi * self.length
+    @property
+    def a(self):
+        return self.a
 
-    def s(self):
-        return math.pi * self.radius ** 2
+    @a.setter
+    def a(self, a):
+        self.a = a
 
-res = MyMath(length=10)
-print(res.circle())
-res_2 = MyMath(radius=5)
-print(res_2.s())
+    @property
+    def b(self):
+        return self.b
 
+    @b.setter
+    def b(self, b):
+        self.b = b
+
+    def summ(self):
+        return self.a() + self.b()
+
+res = MyMath.summ(4, 4)
