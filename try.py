@@ -1,16 +1,18 @@
-import os
+import math
 
+class MyMath:
+    def __init__(self, length=0, radius=0):
+        self.length = length
+        self.radius = radius
 
-def strings_count(path):
-    all_strings = 0
-    for dirpath, dirnames, filenames in os.walk(path):
-        for file in filenames:
-            if os.path.join(dirpath, file).endswith('.py'):
-                curr_file = open(os.path.join(dirpath, file), 'r')
-                for line in curr_file.readlines():
-                    if not (line == '\n'):
-                        all_strings += 1
-    return all_strings
+    def circle(self):
+        return 2 * math.pi * self.length
 
+    def s(self):
+        return math.pi * self.radius ** 2
 
-print(strings_count('/Users/druz_kirill/PycharmProjects/Module26'))
+res = MyMath(length=10)
+print(res.circle())
+res_2 = MyMath(radius=5)
+print(res_2.s())
+

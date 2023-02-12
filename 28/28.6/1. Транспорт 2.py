@@ -14,7 +14,7 @@ class Transport:
         self._name = name
 
     def __str__(self):
-        return f'Название: {self._name}, цвет: {self._color}, скорость: {self._speed}, {self._can_drive}, {self._can_swim}'
+        return f'Название: {self.name}, цвет: {self._color}, скорость: {self._speed}, {self._can_drive}, {self._can_swim}'
 
 class Ground(Transport):
     def __init__(self, name, color, speed, can_drive=True, can_swim=False):
