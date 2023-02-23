@@ -1,44 +1,39 @@
 import time
-import functools
 
 def timer(func):
-    @functools.wraps(func)
     def wrapped_func(*args, **kwargs):
         start = time.time()
-        func(*args, **kwargs)
+        result = func(*args, **kwargs)
         finish = time.time()
         run_time = finish - start
-        print(f'Функция выполнялась {run_time} секунд')
-        return func(*args, **kwargs)
-    return wrapped_func
-
-
-def logging(func):
-    def wrapped_func(*args, **kwargs):
-        print(f'Начинаю записывать лог к функции {func.__name__}')
-        result = func(*args, **kwargs)
-        print('Закончил записывать лог')
+        print(f'Функция {func.__name__} выполнялась {run_time} секунд')
         return result
     return wrapped_func
 
+def logging(func):
+    def wrapped_func(*args, **kwargs):
+        print(f'\nВызывается функция {func.__name__}\t'
+              f'Позиционные аргументы: {args}\t'
+              f'Именованные аргументы: {kwargs}')
+        result = func(*args, **kwargs)
+        print(f'Функция {func.__name__} успешно завершила работу')
+        return result
+    return wrapped_func
+
+@timer
+@logging
+def squares(number):
+    result = 0
+    for _ in range(number + 1):
+        result += sum([i ** 2 for i in range(100000)])
+    return result
 @logging
 @timer
-def squares():
-    number = 100
+def qubes():
     result = 0
-    for _ in range(10000):
-        result += sum([i**2 for i in range(number + 1)])
+    for _ in range(100):
+        result += sum([i**3 for i in range(100000)])
     return result
 
-
-@timer
-@logging
-def qubes(number):
-    result = 0
-    for _ in range(10000):
-        result += sum([i**3 for i in range(number + 1)])
-    return result
-
-
-print(squares())
-print(qubes(100))
+print(squares(100))
+print(qubes())

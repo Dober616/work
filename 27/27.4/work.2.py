@@ -1,18 +1,16 @@
 PLUGINS = dict()
 
-
 def register(func):
     PLUGINS[func.__name__] = func
     return func
-
 @register
-def say_hello(name):
+def greeting(name):
     return f'Hello, {name}'
-
 @register
-def say_goodbuy(name):
-    return f'Goodbuy, {name}'
+def good_bye(name):
+    return f'Goodbye, {name}'
 
-
-print(PLUGINS)
-print(say_hello('Tom'))
+print(greeting('Tom'))
+print(good_bye('Tom'))
+for i in PLUGINS:
+    print(i)
