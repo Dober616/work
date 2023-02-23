@@ -1,29 +1,24 @@
 import time
 
-
-def my_timer(funk, *args, **kwargs):
-    start_time = time.time()
-    result = funk(*args, **kwargs)
-    finish_time = time.time()
-    run_time = round(finish_time - start_time, 4)
-    print(f'Функция работала {run_time} секунд')
-    return result
-
-
-
+def timer(func, *args, **kwargs):
+    started_at = time.time()
+    func(*args, **kwargs)
+    finished_at = time.time()
+    run_time = finished_at - started_at
+    return f'Функция {func.__name__} работала {run_time} секунд\n' \
+           f'Результат функции {func(*args, **kwargs)}'
 def squares_sum():
     number = 100
     result = 0
     for _ in range(number + 1):
-        result += sum(i**2 for i in range(10000))
+        result += sum([each_number**2 for each_number in range(10000)])
     return result
-
 
 def qubes_sum(number):
     result = 0
     for _ in range(number + 1):
-        result += sum(i**3 for i in range(10000))
+        result += sum([some_numm**3 for some_numm in range(10000)])
     return result
 
-print(my_timer(squares_sum))
-print(my_timer(qubes_sum, 100))
+print(timer(squares_sum))
+print(timer(qubes_sum, 100))
