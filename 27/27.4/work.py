@@ -1,6 +1,8 @@
 import time
+import functools
 
 def timer(func):
+    @functools.wraps(func)
     def wrapped_func(*args, **kwargs):
         start = time.time()
         result = func(*args, **kwargs)
