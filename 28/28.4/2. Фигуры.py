@@ -1,45 +1,33 @@
-class Figure:
-    def __init__(self, x, y, width, length):
+from abc import ABC, abstractmethod
+class Figure(ABC):
+    def __init__(self, x, y, side_1, side_2):
         self.x = x
         self.y = y
-        self.width = width
-        self.length = length
+        self.side_1 = side_1
+        self.side_2 = side_2
 
-    def __str__(self):
-        return f'{self.x}, {self.y}, {self.width}, {self.length}'
+class ResizeMixin:
+    def resize(self, side_1, side_2):
+        self.side_1 = side_1
+        self.side_2 = side_2
 
-class Data_change(Figure):
-    def __init__(self, x, y, width, length):
-        super().__init__(x, y, width, length)
-
-    def coordinates_change(self, x, y):
+class MoveMixin:
+    def move(self, x, y):
         self.x = x
         self.y = y
 
-    def sides_change(self, width, length):
-        self.width = width
-        self.length = length
+class Rectangle(Figure, ResizeMixin, MoveMixin):
+    def __init__(self, side_1, side_2, x, y):
+        super().__init__(side_1, side_2, x, y)
 
-
-
-class Rectangle(Data_change):
-    def __init__(self, x, y, width, length):
-        super().__init__(x, y, width, length)
-
-class Square(Data_change):
+class Square(Figure, ResizeMixin, MoveMixin):
     def __init__(self, x, y, size):
         super().__init__(x, y, size, size)
 
 
-# my_Rectangle = Rectangle(1, 2, 3, 4)
-# print(my_Rectangle)
-# my_Rectangle.coordinates_change(2, 4)
-# print(my_Rectangle)
 
-my_square = Square(2, 2, 3)
-print(my_square)
-new_size = 5
-my_square.width = new_size
-my_square.length = new_size
-print(my_square)
 
+square = Square(4, 5, 6)
+square.resize(9, 6)
+print(square.side_1)
+print(square.side_2)

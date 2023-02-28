@@ -1,10 +1,21 @@
 class Person:
     def __init__(self, name, age):
-        self.name = name
-        self.age = age
+        self._name = name
+        self._age = age
 
     def __str__(self):
-        return f'{self._name}, {self._age}'
+        return f'Человека зовут {self._name}. Ему {self._age} лет'
+
+    @property
+    def age(self):
+        return self._age
+
+    @age.setter
+    def age(self, age):
+        if age in range(1, 100):
+            self._age = age
+        else:
+            print('Возраст не подходит под критерии')
 
     @property
     def name(self):
@@ -14,21 +25,15 @@ class Person:
     def name(self, name):
         if isinstance(name, str):
             self._name = name
+        else:
+            print('Имя не подходит под критерии')
 
-    @property
-    def age(self):
-        return self._age
-
-    @age.setter
-    def age(self, age):
-        if 0 < age < 99:
-            self._age = age
-
-
-kirill = Person('Kirill', 22)
-print(kirill)
-print(kirill.age)
-kirill._age = 36
-print(kirill.age)
-print(kirill.name)
-print(kirill)
+me_person = Person('egor', 22)
+print(me_person)
+print(me_person.name)
+print(me_person.age)
+me_person.name = 'Кирилл'
+me_person.age = 36
+print(me_person.age)
+print(me_person)
+print(me_person.name)

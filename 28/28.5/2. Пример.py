@@ -9,17 +9,15 @@ class Example:
     def __exit__(self, exc_type, exc_val, exc_tb):
         print('Вызов __exit__')
         if exc_type:
-            print(f'Тип ошибки: {exc_type}\n'
-                  f'значение ошибки: {exc_val}\n'
-                  f'След ошибки: {exc_tb}')
+            print(f'Тип ошибки: {exc_type}\nЗначение ошибки: {exc_val}\nСлед ошибки: {exc_tb}')
         return True
+
 
 
 my_obj = Example()
 with my_obj as obj:
-    print('Код внутри первого вызова контекст менеджера')
+    print('Код внутри первого контекст менеджера')
     with my_obj as obj_2:
-        raise Exception('Выброс исключения во вложенном (втором) '
-                        'вызове контекст менеджере')
+        raise Exception('Выброс исключения во вложенном втором вызове контекст менеджере')
 
-    print('Я обязательно выведусь...')
+    print('Я обязаетельно выведусь...')
