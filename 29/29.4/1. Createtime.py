@@ -1,36 +1,41 @@
+from datetime import datetime
 import functools
-def decorator(cls):
+
+def create_time(cls):
     @functools.wraps(cls)
-    def wrapped_func(*args, **kwargs):
-        print('Начинаем выполнение методов класса')
-        result = cls(*args, **kwargs)
-        print('Закончили выполнение методов класса')
-        return result
-    return wrapped_func
+    def wrapper(*args, **kwargs):
+        instance = cls(*args, **kwargs)
+        print(f'Время создания класса: {datetime.utcnow()}')
+        for method in dir(cls):
+            if not method.startswith('__'):
+                print(method)
+        return instance
+    return wrapper
 
-def for_all_methods(decorator):
-    @functools.wraps(decorator)
-    def wrapped_func(cls):
-        for each_method in dir(cls):
-            if each_method.startswith('__') is False:
-                cur_method = getattr(cls, each_method)
-                decorated_method = decorator(cur_method)
-                setattr(cls, each_method, decorated_method)
-        return cls
-    return wrapped_func
 
-@for_all_methods(decorator)
-class Functions:
-    def __init__(self, number=None):
-        self.number = number
+class Figure:
+    def __init__(self, side, height=None):
+        self.side = side
+        self.height = height
 
-    def square(self):
-        return self.number**2
+@create_time
+class Qube(Figure):
+    def __init__(self, side):
+        super().__init__(side)
 
-    def qube(self):
-        return self.number**3
+    def surface(self):
+        qube_surface = self.side**2 * 6
+        return qube_surface
+@create_time
+class Pyramyd(Figure):
+    def __init__(self, side, height):
+        super().__init__(side, height)
 
-ttt = Functions(2)
-print(ttt.square())
-print(ttt.qube())
+    def surface(self):
+        pyra_surface = self.side**2 + 4 * (self.side * self.height * 0.5)
+        return pyra_surface
 
+qqq = Qube(2)
+print(qqq.surface())
+ppp = Pyramyd(2, 3)
+print(ppp.surface())

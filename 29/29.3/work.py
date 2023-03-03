@@ -1,37 +1,33 @@
 import time
 import functools
-def timer_precision(_func=None, *, precision=10):
-    def timer_decorator(func):
+from collections.abc import Callable
+def timer_with_presision(_func=None, *, presision=10):
+    def timer(func: Callable) -> Callable:
         @functools.wraps(func)
         def wrapped_func(*args, **kwargs):
-            start = time.time()
-            print('Начинаем выполнять функцию')
+            started_at = time.time()
             result = func(*args, **kwargs)
-            finish = time.time()
-            run_time = round(finish - start, precision)
-            print(f'Функция выполнялась {run_time}')
+            finish_time = time.time()
+            runtime = finish_time - started_at
+            print(f'Функция выполнялась {round(runtime, presision)} секунд')
             return result
         return wrapped_func
     if _func is None:
-        return timer_decorator
-    return timer_decorator(_func)
+        return timer
+    else:
+        return timer(_func)
 
-@timer_precision
-def squares():
+@timer_with_presision(presision=4)
+def squares(number):
     result = 0
-    for _ in range(100):
-        result += sum([i**2 for i in range(100000)])
+    for _ in range(number):
+        result += sum([i**2 for i in range(10000)])
     return result
-
-@timer_precision(precision=3)
+@timer_with_presision
 def qubes(number):
     result = 0
     for _ in range(number):
-        result += sum([i**3 for i in range(100000)])
+        result += sum([i**3 for i in range(10000)])
     return result
-
-s = squares()
-print(f'Результат выполнения функции:{s}')
-print()
-q = qubes(100)
-print(f'Результат выполнения функции: {q}')
+print(squares(100))
+print(qubes(100))

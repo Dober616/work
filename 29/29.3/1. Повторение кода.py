@@ -1,20 +1,20 @@
 import functools
 
-def repeat(_func=None, *, number=10):
+def count_do(_func=None, *, count=5):
     def do_twice(func):
         @functools.wraps(func)
         def wrapped_func(*args, **kwargs):
-            for _ in range(number):
-                func(*args, **kwargs)
-            result = func(*args, **kwargs)
-            return result
+            for _ in range(count - 1):
+                print(func(*args, **kwargs))
+            return func(*args, **kwargs)
         return wrapped_func
     if _func is None:
-        return repeat
-    return do_twice(_func)
+        return do_twice
+    else:
+        return do_twice(_func)
 
-@repeat(number=2)
-def name_print(name):
-    print(name)
+@count_do(count=7)
+def greeting(name):
+    return f'Привет, {name}'
 
-name_print('Кирилл')
+print(greeting(name='Кирилл'))

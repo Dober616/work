@@ -1,27 +1,22 @@
 class Figure:
-    def __init__(self, length, width, height=None):
-        self.length = length
-        self.width = width
+    def __init__(self, side, height=None):
+        self.side = side
         self.height = height
 
 class Tryangle(Figure):
-    def __init__(self, length, height):
-        super().__init__(length=length, width=None)
+    def __init__(self, side, height):
+        super().__init__(side)
         self.height = height
 
     def area(self):
-        return 0.5 * self.length * self.height
+        return 0.5 * self.side * self.height
 
-class Rectangle(Figure):
-    def __init__(self, length, width):
-        super().__init__(length, width)
+class Square(Figure):
+    def __init__(self, side):
+        super().__init__(side)
 
     def area(self):
-        return self.width * self.length
-
-class Square(Rectangle):
-    def __init__(self, length):
-        super().__init__(length=length, width=length)
+        return self.side ** 2
 
 class SurfaceAreaMixin:
     def surface_area(self):
@@ -31,13 +26,13 @@ class SurfaceAreaMixin:
         return surface_area
 
 class Cube(Square, SurfaceAreaMixin):
-    def __init__(self, length):
-        super().__init__(length)
+    def __init__(self, side):
+        super().__init__(side)
         self.surfaces = [Square, Square, Square, Square, Square, Square]
 
 class Pyramyd(Tryangle, Square, SurfaceAreaMixin):
-    def __init__(self, length, height):
-        super().__init__(length, height)
+    def __init__(self, side, height):
+        super().__init__(side, height)
         self.surfaces = [Square, Tryangle, Tryangle, Tryangle, Tryangle]
 
 my_cube = Cube(2)

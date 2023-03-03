@@ -1,1 +1,1 @@
-Hello, worldHello, worldHello, world
+method_1method_2method_3

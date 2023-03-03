@@ -1,32 +1,43 @@
 import functools
+import datetime
+# def logging(cls):
+#     @functools.wraps(cls)
+#     def wrapper(*args, **kwargs):
+#         instance = cls(*args, **kwargs)
+#         for method in dir(cls):
+#             if not method.startswith('__'):
+#                 result = getattr(cls, method)
+#                 print(f'Логируем {result}')
+#
+#         return instance
+#     return wrapper
 
+def logged(func):
+    def wrapped_func(*args, **kwargs):
+        print(f'Запуск функции произошел в {datetime.datetime.now()}')
+        return func(*args, **kwargs)
+    return wrapped_func
 
-def logging(func):
-    @functools.wraps(func)
-    def wrapper(*args, **kwargs):
-        result = func(*args, **kwargs)
-        with open('log.txt', 'a') as file:
-            file.write(result)
-            print('Результаты функции записаны в лог файл')
-        return result
-    return wrapper
 
 def decorator(cls):
     for method in dir(cls):
-        if not method.startswith('__'):
-            result = logging(method)
-            return result
+        if method.startswith('__'):
+            pass
+        a = getattr(cls, method)
+        if hasattr(a, '__call__'):
+            decorated_a = logged(a)
+            setattr(cls, method, decorated_a)
     return cls
 
-
-@decorator
+@logged
 class MyClass:
     def method_1(self):
-        return 'Hello, world'
+        print('Привет, как дела')
     def method_2(self):
-        return 'Hello, world'
+        print('Нормально')
     def method_3(self):
-        return 'Hello, world'
+        print('А у тебя?')
+
 
 t = MyClass()
-
+t.method_1()
