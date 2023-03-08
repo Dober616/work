@@ -1,5 +1,4 @@
 import functools
-
 class CountCalls:
     def __init__(self, func):
         functools.update_wrapper(self, func)
@@ -13,7 +12,7 @@ class CountCalls:
 
 @CountCalls
 def say_hello():
-    print('Hello')
+    print('Hello, Peter!')
 
 say_hello()
 say_hello()
