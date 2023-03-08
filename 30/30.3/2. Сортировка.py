@@ -34,3 +34,4 @@ person_list = [person_1, person_2, person_3]
 print(person_list)
 human_sorted = sorted(person_list, key=lambda elem: elem.age)
 print(human_sorted)
+print(person_1.age)
