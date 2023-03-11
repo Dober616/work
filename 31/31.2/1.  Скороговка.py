@@ -1,0 +1,21 @@
+import re
+
+text = 'How much wood would a woodchuck chuck if a woodchuck could chuck wood?'
+print('1) ', end=' ')
+result = re.match(r'wo', text)
+print(result)
+print('2) ', end=' ')
+result = re.search(r'wo', text)
+print(result)
+print('3) ', end=' ')
+print(result.group(0))
+print('4) ', end=' ')
+print(result.start())
+print('5) ', end=' ')
+print(result.end())
+print('6) ', end=' ')
+result = re.findall(r'wo', text)
+print(result)
+print('7) ', end=' ')
+result = re.sub(r'wo', 'ЗАМЕНА', text)
+print(result)
